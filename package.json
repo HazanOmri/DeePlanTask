@@ -1,0 +1,28 @@
+{
+  "name": "donia-backend",
+  "version": "1.0.0",
+  "description": "backend server for donia",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server:dev": "nodemon server.js",
+    "server:prod": "set NODE_ENV=production&&node server.js"
+  },
+  "author": "Omri Hazan",
+  "license": "ISC",
+  "dependencies": {
+    "aws-cdk": "^2.70.0",
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "cryptr": "^6.1.0",
+    "express": "^4.18.2",
+    "mongo": "^0.1.0",
+    "mongodb": "^4.13.0",
+    "socket.io": "^4.5.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
