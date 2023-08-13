@@ -1,20 +1,12 @@
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
-const utilService = require('../../services/util.service')
 const ObjectId = require('mongodb').ObjectId
+var num = 1
 
-async function query(filterBy = {}) {
+async function query() {
     try {
-        const criteria = {}
-        // if (filterBy.userId) {
-        //     criteria['$or'] = [{ 'createdBy._id': filterBy.userId }, { 'shareWith': filterBy.userId }]
-        // }
-
-        // if (filterBy.page) {
-        //     criteria.tags = { $regex: filterBy.page, $options: 'i' }
-        // }
         const collection = await dbService.getCollection('supply')
-        var items = await collection.find(criteria).toArray()
+        var items = await collection.find({}).toArray()
         return items
     } catch (err) {
         logger.error('cannot find items', err)
@@ -46,13 +38,13 @@ async function remove(itemId) {
 
 async function add(item) {
     try {
-        console.log('item', item)
+        item.num = num++
         const collection = await dbService.getCollection('supply')
         await collection.insertOne(item)
         return item
     } catch (err) {
         logger.error('cannot insert item', err)
-        console.log(err, 'cannot insert item ')
+        console.error(err, 'cannot insert item ')
         throw err
     }
 }
@@ -75,5 +67,5 @@ module.exports = {
     query,
     getById,
     add,
-    update
+    update,
 }

@@ -28,7 +28,7 @@ async function addItem(req, res) {
         item = await itemService.add(item)
         res.json(item)
     } catch (err) {
-        console.log(err, 'Cant add item')
+        console.error(err, 'Cant add item')
         res.status(500).send({ err: 'Failed to remove item' })
     }
 
@@ -36,12 +36,11 @@ async function addItem(req, res) {
 
 async function updateItem(req, res) {
     try {
-        console.log("req.body", req.body)
         const item = req.body
         const updatedItem = await itemService.update(item)
         res.json(updatedItem)
     } catch (err) {
-        console.log('Failed to update item', err)
+        console.error('Failed to update item', err)
         res.status(500).send({ err: 'Failed to update item' })
     }
 
@@ -53,7 +52,7 @@ async function deleteItem(req, res) {
         const removedId = await itemService.remove(itemId)
         res.json(removedId)
     } catch (err) {
-        console.log(err, 'Cant delete item')
+        console.error(err, 'Cant delete item')
         res.status(500).send({ err: 'Failed to remove item' })
     }
 }
