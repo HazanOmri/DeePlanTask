@@ -31,3 +31,4 @@
 16.8.2023, 17:54:20 - ERROR - cannot update item 64d88bb5a2c255781ab472c5 | MongoInvalidArgumentError: Replacement document must not contain atomic operators 
 16.8.2023, 17:56:50 - INFO - Server is running on port: 3030 
 17.8.2023, 10:44:10 - INFO - Server is running on port: 3030 
+17.8.2023, 11:30:47 - INFO - Server is running on port: 3030 
