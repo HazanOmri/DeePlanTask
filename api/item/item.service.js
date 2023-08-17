@@ -54,7 +54,7 @@ async function update(item) {
         let itemToSave = { ...item }
         delete itemToSave._id
         const collection = await dbService.getCollection('supply')
-        itemToSave = await collection.updateOne({ _id: ObjectId(item._id) }, { $set: itemToSave })
+        await collection.replaceOne({ _id: ObjectId(item._id) }, itemToSave)
         return itemToSave
     } catch (err) {
         logger.error(`cannot update item ${item._id}`, err)

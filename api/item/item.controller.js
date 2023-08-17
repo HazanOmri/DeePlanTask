@@ -38,6 +38,8 @@ async function updateItem(req, res) {
     try {
         const item = req.body
         const updatedItem = await itemService.update(item)
+        console.log('ITEM', item)
+        console.log('UPDATEDITEM', updatedItem)
         res.json(updatedItem)
     } catch (err) {
         console.error('Failed to update item', err)
