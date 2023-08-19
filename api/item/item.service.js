@@ -38,8 +38,8 @@ async function remove(itemId) {
 
 async function add(item) {
     try {
-        item.num = num++
         const collection = await dbService.getCollection('supply')
+        item.num = await collection.countDocuments({}) + 1;
         await collection.insertOne(item)
         return item
     } catch (err) {
